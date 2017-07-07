@@ -1,7 +1,10 @@
-dd if=/dev/random bs=1 count=64 2>/dev/null | base64 | cut -b 2-
+echo "0         1         2         3         4         5         6"
+echo "0         0         0         0         0         0         0"
 
-openssl rand -base64 64
+dd if=/dev/random bs=1 count=50 2>/dev/null | base64 | cut -b 2-
 
-date +%s | shasum | base64 | head -c 32 ; echo
+openssl rand -base64 48
+
+date +%s | shasum | base64
 
 date | md5

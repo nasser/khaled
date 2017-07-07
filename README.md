@@ -51,15 +51,16 @@ $
 
 Enter the name you want to associate with your new password when prompted for `name`. Enter the password when prompted for `value`. You have to enter your database password (the one you provided to `start`) three times: once to decrypt the database, once to re-encrypt it, and another to verify. This is annoying, and strictly speaking you could *change* your database's password here, so this might change in the future.
 
-If you need a new password, you can use `make`. It will generate a few pseudorandom password options for you. Which one you use will depend on the service you are registering with, as some will have size and character constraints on what they allow as a password. Generally, use the longest password with the most special characters that you can get away with.
+If you need a new password, you can use `make`. It will generate a few pseudorandom password options for you. Which one you use will depend on the service you are registering with, as some will have size and character constraints on what they allow as a password. Generally, use the longest password with the most special characters that you can get away with. The `make` script prints out numbers to help visualize how many characters there are.
 
 ```
-$ ./make
-3tTjbAWxqHMuWBAPUf2uS0yPNA/3TNgRbISs3V8gqhnKgyXFfPpS9kGzS+/OlOOofw14h2Fr4p4jLCYoczEBA==
-XMo+PiDlb7gnZA8mGCDaaajXxOv2k7qqYnF22Xs3anFIoHDhM03rqPwk6W56OutZ
-dTRxvnTfVU36fft8dK6FLQ==
-MDg5NjlhMzg3MzI3MmNkZGI1ZWE4Yzgz
-0a79c6cb182b7f7e5894acac68680291
+$ ./make 
+0         1         2         3         4         5         6
+0         0         0         0         0         0         0
+VRONtqsrbux//VffBspJ1yLedzoczYg5Jdda5cTDli6M7nLt1O8f+xEtTmTQ7trfq8=
+PZGBR8pMik5BJQUKbpUrwMmW/5d+5MRCMdTDXwM0OUUlZaWOu12RLhzHBY+MtI1/
+NWMwZWNiOWE3NWQ3MWVjMzdhM2YzODY5OWE5ZmM1NGE4ZWRmZWEwMCAgLQo=
+34e59d05daa124f4bd58cab26b0671b8
 $
 ```
 
