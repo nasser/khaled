@@ -13,4 +13,6 @@ if [ ! -f $FILE ]; then
     exit
 fi
 
-openssl enc -aes-256-cbc -d -in $FILE | grep $NAME | sed 's/^[^ ]* //g' | pbcopy
+(
+  openssl enc -aes-256-cbc -d -in $FILE | grep $NAME | sed 's/^[^ ]* //g' | pbcopy
+) && echo "ok"
