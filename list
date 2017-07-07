@@ -1,0 +1,8 @@
+FILE=$1
+
+if [ ! -f $FILE ]; then
+    echo "file '$FILE' not found"
+    exit
+fi
+
+openssl enc -aes-256-cbc -d -in $FILE | sed 's/ [^ ]*$//g'

@@ -1,0 +1,15 @@
+FILE=$1
+
+if [ ! -f $FILE ]; then
+    echo "file '$FILE' not found"
+    exit
+fi
+
+echo -n "key: "; read NAME
+echo -n "value: "; read -s PASSWORD
+echo ""
+
+(
+  NEW_PASSWORDS=$( openssl enc -aes-256-cbc -d -in $FILE | sed -n "/^$NAME /!p"; echo "$NAME $PASSWORD"; );
+  echo "$NEW_PASSWORDS" | openssl enc -aes-256-cbc -e > $FILE
+) && echo "ok"

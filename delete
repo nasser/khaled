@@ -1,0 +1,17 @@
+if [ $# -eq 0 ]
+  then
+    echo "$0 FILE KEY"
+    echo "removes KEY from FILE"
+    exit
+fi
+
+FILE=$1
+NAME=$2
+
+if [ ! -f $FILE ]; then
+    echo "file '$FILE' not found"
+    exit
+fi
+
+NEW_PASSWORDS=$( openssl enc -aes-256-cbc -d -in $FILE | sed -n "/^$NAME /!p"; )
+echo "$NEW_PASSWORDS" | openssl enc -aes-256-cbc -e > $FILE
