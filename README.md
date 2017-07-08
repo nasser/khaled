@@ -10,16 +10,16 @@ Usage
 Starts a new store in `file`. You will be prompted for a password to encrypt `file`. `file` is overwritten if it exists.
 
 ### `put file`
-Associates a key with a new value in `file`. You will be prompted for the key, the value, and `file`'s password.
+Associates a key with a new value in `file`. You will be prompted for the key, the value, and `file`'s password. If omitted `file` defaults to the value of `$KHALED_DEFAULT_FILE`
 
 ### `get file key`
-Gets the value associated with `key` in `file`. You will be prompted for `file`'s password.
+Gets the value associated with `key` in `file`. You will be prompted for `file`'s password. If omitted `file` defaults to the value of `$KHALED_DEFAULT_FILE`
 
 ### `delete file key`
-Removes `key` and its associated value from `file`. You will be prompted for `file`'s password.
+Removes `key` and its associated value from `file`. You will be prompted for `file`'s password. If omitted `file` defaults to the value of `$KHALED_DEFAULT_FILE`
 
 ### `list file`
-Lists all keys in `file`. You will be prompted for `file`'s password.
+Lists all keys in `file`. You will be prompted for `file`'s password. If omitted `file` defaults to the value of `$KHALED_DEFAULT_FILE`
 
 ### `make`
 Generates a few random passwords.

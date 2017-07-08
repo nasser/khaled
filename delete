@@ -1,12 +1,18 @@
 if [ $# -eq 0 ]
   then
-    echo "$0 FILE KEY"
+    echo "$0 [FILE] KEY"
     echo "removes KEY from FILE"
+    echo "FILE defaults to \$KHALED_DEFAULT_FILE"
     exit
+  elif [ $# -eq 1 ]
+    then
+      FILE=$KHALED_DEFAULT_FILE
+      NAME=$1
+  elif [ $# -eq 2 ]
+    then
+      FILE=$1
+      NAME=$2
 fi
-
-FILE=$1
-NAME=$2
 
 if [ ! -f $FILE ]; then
     echo "file '$FILE' not found"

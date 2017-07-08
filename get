@@ -1,12 +1,18 @@
 if [ $# -eq 0 ]
   then
-    echo "$0 FILE KEY"
+    echo "$0 [FILE] KEY"
     echo "copies the value associated with KEY from FILE file to pasteboard"
+    echo "FILE defaults to \$KHALED_DEFAULT_FILE"
     exit
+  elif [ $# -eq 1 ]
+    then
+      FILE=$KHALED_DEFAULT_FILE
+      NAME=$1
+  elif [ $# -eq 2 ]
+    then
+      FILE=$1
+      NAME=$2
 fi
-
-FILE=$1
-NAME=$2
 
 if [ ! -f $FILE ]; then
     echo "file '$FILE' not found"
@@ -14,5 +20,5 @@ if [ ! -f $FILE ]; then
 fi
 
 (
-  openssl enc -aes-256-cbc -d -in $FILE | grep $NAME | sed 's/^[^ ]* //g' | pbcopy
+  openssl enc -aes-256-cbc -d -in $FILE | grep $NAME | sed 's/^[^ ]* //g' | tr -d '[:space:]' | pbcopy
 ) && echo "ok"

@@ -1,11 +1,10 @@
 if [ $# -eq 0 ]
   then
-    echo "$0 FILE"
-    echo "lists keys in FILE"
-    exit
+    FILE=$KHALED_DEFAULT_FILE
+  elif [ $# -eq 1 ]
+    then
+      FILE=$1
 fi
-
-FILE=$1
 
 if [ ! -f $FILE ]; then
     echo "file '$FILE' not found"
